@@ -87,7 +87,9 @@ python app.py
 You can use the prediction endpoint programmatically.
 
 Endpoint: `https://gender-predictor.onrender.com/predict`
+
 Method: `POST`
+
 Content-Type: `application/json`
 
 # 🤝 Contributing
