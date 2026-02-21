@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Questionnaire</title>
+    <style>
+        body { font-family: Arial; background: linear-gradient(to right, #667eea, #764ba2); min-height: 100vh; margin: 0; padding: 20px; }
+        .container { background: white; max-width: 600px; margin: 0 auto; padding: 2rem; border-radius: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
+        h1 { color: #333; text-align: center; }
+        .question { margin: 20px 0; padding: 15px; border: 1px solid #e2e8f0; border-radius: 5px; }
+        .question p { font-weight: bold; margin-bottom: 10px; }
+        .options { display: flex; justify-content: space-between; }
+        .options label { margin: 0 5px; text-align: center; }
+        .btn { background: #667eea; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; width: 100%; font-size: 16px; }
+        .btn:hover { background: #5a67d8; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📋 Refinement Questionnaire</h1>
+        <p>Please answer a few questions to help improve the prediction.</p>
+        <form action="/refine" method="post">
+            {% for q in questions %}
+            <div class="question">
+                <p>{{ q.id }}. {{ q.text }}</p>
+                <div class="options">
+                    {% for i in range(1,6) %}
+                    <label>
+                        <input type="radio" name="q{{ q.id }}" value="{{ i }}" required>
+                        {% if i == 1 %}Strongly Disagree{% elif i == 2 %}Disagree{% elif i == 3 %}Neutral{% elif i == 4 %}Agree{% else %}Strongly Agree{% endif %}
+                    </label>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+            <button type="submit" class="btn">Get Refined Prediction</button>
+        </form>
+    </div>
+</body>
+</html>

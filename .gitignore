@@ -1,0 +1,9 @@
+venv/
+__pycache__/
+*.pyc
+*.pyo
+data/raw/
+data/processed/global_names_combined.csv
+data/processed/indian_names_clean.csv
+data/processed/ssa_names.csv
+*.zip

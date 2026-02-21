@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GenderSpark – Predict Gender</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        body {
+            min-height: 100vh;
+            background: linear-gradient(145deg, #ff6b6b, #4ecdc4, #45b7d1);
+            background-size: 300% 300%;
+            animation: gradientShift 10s ease infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(15px);
+            border-radius: 40px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+            padding: 3rem 2.5rem;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            transform: scale(1);
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: scale(1.02);
+        }
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+        .sub {
+            color: #2c3e50;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+        input {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            border: none;
+            border-radius: 60px;
+            background: rgba(255,255,255,0.8);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05), 0 0 0 2px rgba(255,255,255,0.8);
+            font-size: 1.1rem;
+            transition: all 0.2s;
+        }
+        input:focus {
+            outline: none;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1), 0 0 0 4px #4ecdc4;
+        }
+        button {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            border: none;
+            border-radius: 60px;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 10px 20px rgba(255,107,107,0.3);
+        }
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(78,205,196,0.4);
+        }
+        .sample-link {
+            margin-top: 1.5rem;
+            color: #2c3e50;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: underline wavy #ff6b6b 2px;
+            transition: color 0.2s;
+        }
+        .sample-link:hover {
+            color: #ff6b6b;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>GenderSpark</h1>
+        <div class="sub">Enter a name, spark the prediction</div>
+        <form action="/result" method="post">
+            <div class="input-group">
+                <input type="text" name="name" placeholder="e.g., Alex, Priya, Jordan" required>
+            </div>
+            <button type="submit">⚡ Predict</button>
+        </form>
+        <div class="sample-link" onclick="document.querySelector('input[name=\'name\']').value='Casey'">Try "Casey"</div>
+    </div>
+</body>
+</html>
