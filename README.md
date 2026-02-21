@@ -17,7 +17,7 @@
 ## ✨ Features
 
 - 🔮 **Name‑based prediction** – uses a trained Random Forest model with character n‑grams (2‑5 characters) for high accuracy.
-- 📋 **Interactive refinement** – 8 optional questions that adjust the prediction for ambiguous names (weighted 60% name model, 40% questionnaire).
+- 📋 **Interactive refinement** – 5 optional questions that adjust the prediction for ambiguous names (weighted 60% name model, 40% questionnaire).
 - 🌍 **Global dataset** – trained on combined Indian and US SSA names for cross‑cultural performance.
 - 🧠 **Smart combination** – when confidence is low (<0.7) or the name is flagged as ambiguous, users can refine via a simple Likert‑scale questionnaire.
 - 🎨 **Vibrant, responsive UI** – gradient backgrounds, smooth animations, and a modern tech aesthetic.
@@ -40,7 +40,7 @@
 ## 🧠 How It Works
 
 1. **Name Model**: A `TfidfVectorizer` (character n‑grams, 2‑5) + `LogisticRegression` pipeline predicts gender probabilities.
-2. **Questionnaire**: 8 questions with directions (male/female) are answered on a 1‑5 Likert scale. A score is computed (0 = strongly female, 1 = strongly male).
+2. **Questionnaire**: 5 questions with directions (male/female) are answered on a 1‑5 Likert scale. A score is computed (0 = strongly female, 1 = strongly male).
 3. **Combination**: Final prediction = `0.6 * name_male_prob + 0.4 * questionnaire_score`. A threshold of 0.5 determines the final class.
 4. **Ambiguity Handling**: If initial confidence < 0.7 or name exists in the ambiguous list, users are prompted to refine.
 
